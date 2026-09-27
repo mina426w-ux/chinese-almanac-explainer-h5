@@ -1,0 +1,12 @@
+{
+  "product": "中华万年黄历与传统时间文化解释器 V1 H5",
+  "ruleset": "V1传统黄历规则集",
+  "generatedAt": "2026-09-27T23:22:53.851Z",
+  "sources": {
+    "miniprogram/vendor/lunar.js": "9750324bfe1aa63c146f8c72b1143df924466c11c8a5277d7d9225c541a18aaa",
+    "miniprogram/config/timezone.js": "e037b1a0a2b4e30bf5c00a657f29a9c80cc48cacff975f24d1cfd3d8da93b34a",
+    "miniprogram/lib/date-utils.js": "c408198f469bbedb6df5bc67df5cf9b446f46c15701ba525258770df8b9803cf",
+    "miniprogram/lib/almanac.js": "d6d233263226c4b222608047fabd425a634b692103f9ed8d3d13474ba0fbc115",
+    "miniprogram/data/explanations.js": "076f3a28a2aace4031254c17eed73fecc48fe5dd33aa4b0f2177d1fe972a7b99"
+  }
+}

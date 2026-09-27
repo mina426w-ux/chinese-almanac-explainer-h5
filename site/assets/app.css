@@ -1,0 +1,95 @@
+:root {
+  color-scheme: light;
+  font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  background: #f4ede0;
+  color: #30221d;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at top, #fff8eb 0, #f4ede0 48%, #eadfcd 100%); }
+button, input { font: inherit; }
+button { color: inherit; }
+button:focus-visible, input:focus-visible { outline: 3px solid rgba(143, 47, 39, .32); outline-offset: 2px; }
+.app-shell { width: min(100%, 760px); min-height: 100vh; margin: 0 auto; padding: 0 14px calc(28px + env(safe-area-inset-bottom)); }
+.hero { margin: 0 -14px 14px; padding: calc(24px + env(safe-area-inset-top)) 18px 22px; color: #fff8ec; text-align: center; background: linear-gradient(155deg, #72251f, #a83c30 58%, #c26744); border-radius: 0 0 28px 28px; box-shadow: 0 12px 32px rgba(92, 42, 28, .22); }
+.eyebrow { margin: 0 0 6px; font-size: 12px; letter-spacing: .12em; opacity: .78; }
+h1 { margin: 0; font-family: "STKaiti", "KaiTi", serif; font-size: clamp(30px, 9vw, 44px); font-weight: 700; letter-spacing: .08em; }
+.subtitle { margin: 4px 0 18px; font-size: 14px; opacity: .82; }
+.date-nav { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 10px; }
+.nav-button { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.36); border-radius: 50%; color: #fff; background: rgba(255,255,255,.1); font-size: 30px; line-height: 1; cursor: pointer; }
+.date-heading { display: flex; flex-direction: column; gap: 2px; }
+.date-heading strong { font-family: "STKaiti", "KaiTi", serif; font-size: 25px; }
+.date-heading span { font-size: 14px; opacity: .8; }
+.date-tools { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; margin-top: 16px; }
+.soft-button, .date-input-label { min-height: 39px; border: 1px solid rgba(255,255,255,.3); border-radius: 11px; color: #fff8ec; background: rgba(255,255,255,.1); }
+.soft-button { padding: 0 14px; cursor: pointer; }
+.date-input-label { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.date-input-label span { pointer-events: none; }
+.date-input-label input { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; }
+.summary-card, .panel { margin: 12px 0; border: 1px solid rgba(118, 78, 53, .13); border-radius: 18px; background: rgba(255, 252, 246, .9); box-shadow: 0 5px 20px rgba(85, 53, 31, .07); }
+.summary-card { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+.summary-item { min-height: 78px; padding: 14px; border: 0; border-right: 1px solid #eee2d2; border-bottom: 1px solid #eee2d2; text-align: left; background: transparent; cursor: pointer; }
+.summary-item:nth-child(2n) { border-right: 0; }
+.summary-item:nth-last-child(-n+2) { border-bottom: 0; }
+.summary-item span, .info-tile span { display: block; margin-bottom: 6px; color: #8b6c59; font-size: 12px; }
+.summary-item strong { font-size: 15px; line-height: 1.5; }
+.panel { padding: 16px; }
+.panel-title { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.panel h2, .panel-title h2 { margin: 0; font-family: "STKaiti", "KaiTi", serif; font-size: 21px; }
+.seal { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; color: #fff; font-family: serif; font-weight: 700; }
+.seal-yi { background: #497d5c; }
+.seal-ji { background: #9f4137; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.term-tag { padding: 8px 12px; border: 1px solid #eadbc6; border-radius: 999px; color: #5d3f32; background: #fffaf1; cursor: pointer; }
+.yi-panel .term-tag { border-color: #cfe0d1; color: #315f43; background: #f4faf4; }
+.ji-panel .term-tag { border-color: #ead0cb; color: #7c302b; background: #fff6f4; }
+.compact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; padding: 0; overflow: hidden; background: #eadfce; }
+.info-tile { min-height: 78px; padding: 14px; border: 0; text-align: left; background: #fffaf3; cursor: pointer; }
+.info-tile:last-child { grid-column: 1 / -1; }
+.info-tile strong { font-size: 16px; }
+.explainable::after, .term-tag::after, .detail-row::after { content: " · 释"; color: #a2684b; font-size: 10px; font-weight: 400; }
+.full-toggle { width: 100%; min-height: 48px; margin: 2px 0 12px; border: 1px solid #dcc8ad; border-radius: 14px; color: #733027; background: #fff8ec; font-weight: 700; cursor: pointer; }
+.full-toggle span { display: inline-block; transition: transform .2s ease; }
+.full-toggle[aria-expanded="true"] span { transform: rotate(180deg); }
+.full-panel h2 { margin-bottom: 8px; }
+.detail-row { display: grid; grid-template-columns: 96px 1fr; width: 100%; padding: 13px 4px; border: 0; border-bottom: 1px solid #eee2d2; text-align: left; background: transparent; cursor: pointer; }
+.detail-row:last-child { border-bottom: 0; }
+.detail-row span { color: #8b6c59; }
+.detail-row strong { line-height: 1.55; }
+footer { padding: 18px 8px; color: #806b5b; font-size: 12px; line-height: 1.65; text-align: center; }
+footer p { margin: 4px 0; }
+footer a { color: #7e342c; }
+.modal[hidden] { display: none; }
+.modal { position: fixed; z-index: 20; inset: 0; display: grid; align-items: end; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(39, 25, 19, .52); backdrop-filter: blur(3px); }
+.modal-sheet { position: relative; width: min(100%, 760px); max-height: 88vh; margin: 0 auto; padding: 26px 20px calc(24px + env(safe-area-inset-bottom)); overflow-y: auto; border-radius: 26px 26px 0 0; background: #fffaf2; box-shadow: 0 -12px 42px rgba(34, 22, 17, .25); }
+.modal-close { position: absolute; top: 12px; right: 14px; width: 38px; height: 38px; border: 0; border-radius: 50%; color: #714c3c; background: #f1e4d4; font-size: 25px; cursor: pointer; }
+.explanation-sheet h2 { margin: 0 44px 18px 0; color: #842f27; font-family: "STKaiti", "KaiTi", serif; font-size: 28px; }
+.explanation-sheet section { margin: 12px 0; padding: 14px; border-radius: 14px; background: #f7eee1; }
+.explanation-sheet h3 { margin: 0 0 7px; color: #8b5b43; font-size: 13px; }
+.explanation-sheet p { margin: 0; line-height: 1.75; }
+.calendar-header { display: grid; grid-template-columns: 42px 1fr 42px; align-items: center; margin-bottom: 14px; }
+.calendar-header h2 { margin: 0; text-align: center; font-family: "STKaiti", "KaiTi", serif; }
+.calendar-header button { width: 38px; height: 38px; border: 0; border-radius: 50%; background: #f1e4d4; font-size: 24px; cursor: pointer; }
+.calendar-weekdays, .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.calendar-weekdays span { padding: 8px 0; color: #96745f; font-size: 12px; text-align: center; }
+.calendar-day { min-height: 54px; padding: 6px 2px; border: 2px solid transparent; border-radius: 12px; background: transparent; cursor: pointer; }
+.calendar-day strong, .calendar-day small { display: block; }
+.calendar-day small { margin-top: 2px; color: #9a7a66; font-size: 9px; overflow: hidden; white-space: nowrap; }
+.calendar-day.outside { opacity: .4; }
+.calendar-day.selected { border-color: #a23b30; color: #fff; background: #a23b30; }
+.calendar-day.selected small { color: #fbe4d5; }
+.calendar-day:disabled { opacity: .25; cursor: default; }
+body.modal-open { overflow: hidden; }
+
+@media (min-width: 680px) {
+  .app-shell { padding-inline: 24px; }
+  .hero { margin-inline: -24px; padding-inline: 42px; }
+  .compact-grid { grid-template-columns: repeat(5, 1fr); }
+  .info-tile:last-child { grid-column: auto; }
+  .modal { align-items: center; padding: 24px; }
+  .modal-sheet { border-radius: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

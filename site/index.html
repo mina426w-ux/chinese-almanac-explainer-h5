@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#8f2f27" />
+    <meta name="description" content="中华万年黄历与传统时间文化解释器 V1 H5" />
+    <link rel="icon" href="data:," />
+    <title>中华万年黄历</title>
+    <link rel="stylesheet" href="./assets/app.css" />
+  </head>
+  <body>
+    <main class="app-shell" id="app">
+      <header class="hero">
+        <p class="eyebrow">V1 传统黄历规则集 · Asia/Shanghai</p>
+        <h1>中华万年黄历</h1>
+        <p class="subtitle">传统时间文化解释器</p>
+
+        <div class="date-nav" aria-label="日期切换">
+          <button class="nav-button" id="previousDay" type="button" aria-label="前一天">‹</button>
+          <div class="date-heading">
+            <strong id="displayDate">正在计算…</strong>
+            <span id="weekday"></span>
+          </div>
+          <button class="nav-button" id="nextDay" type="button" aria-label="后一天">›</button>
+        </div>
+
+        <div class="date-tools">
+          <button class="soft-button" id="todayButton" type="button">今天</button>
+          <label class="date-input-label">
+            <span>选择日期</span>
+            <input id="datePicker" type="date" min="1901-01-01" max="2100-12-31" />
+          </label>
+          <button class="soft-button" id="openCalendar" type="button">月历</button>
+        </div>
+      </header>
+
+      <section class="summary-card" aria-label="日期摘要">
+        <button class="summary-item explainable" type="button" data-explain-type="lunar" data-value-source="lunarDate">
+          <span>农历</span><strong id="lunarDate">—</strong>
+        </button>
+        <button class="summary-item explainable" type="button" data-explain-type="ganZhi" data-value-source="ganZhiText">
+          <span>干支</span><strong id="ganZhiText">—</strong>
+        </button>
+        <button class="summary-item explainable" type="button" data-explain-type="zodiac" data-value-source="zodiac">
+          <span>生肖</span><strong id="zodiac">—</strong>
+        </button>
+        <button class="summary-item explainable" type="button" data-explain-type="solarTerm" data-value-source="solarTerm">
+          <span>节气</span><strong id="solarTerm">—</strong>
+        </button>
+      </section>
+
+      <section class="panel yi-panel">
+        <div class="panel-title"><span class="seal seal-yi">宜</span><h2>今日宜</h2></div>
+        <div class="tag-list" id="yiList"></div>
+      </section>
+
+      <section class="panel ji-panel">
+        <div class="panel-title"><span class="seal seal-ji">忌</span><h2>今日忌</h2></div>
+        <div class="tag-list" id="jiList"></div>
+      </section>
+
+      <section class="panel compact-grid" aria-label="冲煞与方位">
+        <button class="info-tile explainable" type="button" data-explain-type="chong" data-value-source="chong"><span>冲</span><strong id="chong">—</strong></button>
+        <button class="info-tile explainable" type="button" data-explain-type="sha" data-value-source="sha"><span>煞</span><strong id="sha">—</strong></button>
+        <button class="info-tile explainable" type="button" data-explain-type="wealth" data-value-source="wealth"><span>财神</span><strong id="wealth">—</strong></button>
+        <button class="info-tile explainable" type="button" data-explain-type="joy" data-value-source="joy"><span>喜神</span><strong id="joy">—</strong></button>
+        <button class="info-tile explainable" type="button" data-explain-type="fortune" data-value-source="fortune"><span>福神</span><strong id="fortune">—</strong></button>
+      </section>
+
+      <button class="full-toggle" id="toggleFull" type="button" aria-expanded="false">查看完整黄历 <span>⌄</span></button>
+
+      <section class="panel full-panel" id="fullPanel" hidden>
+        <h2>完整黄历</h2>
+        <div id="fullRows"></div>
+      </section>
+
+      <footer>
+        <p>宜忌、冲煞、神煞与方位属于传统历书分类，不是现代科学结论或现实安全预警。</p>
+        <p id="dependency"></p>
+        <p><a href="./THIRD_PARTY_NOTICES.txt">第三方软件声明</a></p>
+      </footer>
+    </main>
+
+    <div class="modal" id="explanationModal" hidden role="dialog" aria-modal="true" aria-labelledby="explanationTitle">
+      <div class="modal-backdrop" data-close-modal="explanationModal"></div>
+      <article class="modal-sheet explanation-sheet">
+        <button class="modal-close" type="button" data-close-modal="explanationModal" aria-label="关闭">×</button>
+        <p class="eyebrow">传统术语注解</p>
+        <h2 id="explanationTitle">—</h2>
+        <section><h3>传统原文</h3><p id="explanationOriginal"></p></section>
+        <section><h3>白话解释</h3><p id="explanationPlain"></p></section>
+        <section><h3>深入说明</h3><p id="explanationDeep"></p></section>
+      </article>
+    </div>
+
+    <div class="modal" id="calendarModal" hidden role="dialog" aria-modal="true" aria-labelledby="calendarTitle">
+      <div class="modal-backdrop" data-close-modal="calendarModal"></div>
+      <article class="modal-sheet calendar-sheet">
+        <button class="modal-close" type="button" data-close-modal="calendarModal" aria-label="关闭">×</button>
+        <div class="calendar-header">
+          <button id="calendarPrevious" type="button" aria-label="上个月">‹</button>
+          <h2 id="calendarTitle">—</h2>
+          <button id="calendarNext" type="button" aria-label="下个月">›</button>
+        </div>
+        <div class="calendar-weekdays" aria-hidden="true"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </article>
+    </div>
+
+    <script src="./assets/core.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>

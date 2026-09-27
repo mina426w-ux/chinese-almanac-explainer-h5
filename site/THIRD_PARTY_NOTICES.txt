@@ -1,0 +1,47 @@
+# Third-Party Notices
+
+This file applies to third-party material distributed with **中华万年黄历与传统时间文化解释器 V1**. It does not change the license of the project's own code, which is marked `UNLICENSED` in `package.json`.
+
+## lunar-javascript
+
+- Package: `lunar-javascript`
+- Version: `1.7.7`
+- Author: 6tail
+- Project: <https://github.com/6tail/lunar-javascript>
+- Package page: <https://www.npmjs.com/package/lunar-javascript/v/1.7.7>
+- License: MIT
+- Distributed runtime file: `miniprogram/vendor/lunar.js`
+- Adjacent license copy: `miniprogram/vendor/lunar-javascript.LICENSE.txt`
+- Preserved source evidence: `evidence/lunar-javascript-1.7.7.tgz` and `evidence/lunar-package/package/`
+
+At the 2026-09-28 audit, the distributed `miniprogram/vendor/lunar.js` and the `lunar.js` extracted from the preserved 1.7.7 package had the same SHA-256 digest:
+
+```text
+9750324BFE1AA63C146F8C72B1143DF924466C11C8A5277D7D9225C541A18AAA
+```
+
+The full license text follows.
+
+```text
+MIT License
+
+Copyright (c) 2018 6tail
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
